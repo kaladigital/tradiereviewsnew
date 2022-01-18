@@ -9,7 +9,7 @@
         <section class="content-section create-account">
             <div class="container text-center">
                 <h1>Create Your <span class="blue-text">Free Account</span></h1>
-                <h3 class="lead-text">Get your reviews!</h3>
+                <h3 class="lead-text">Get your reviews! No credit card required task.</h3>
                 <div class="form-style2 form-wrap mx-auto">
                     @include('elements.alerts')
                     {!! Form::open(['url' => '/free-trial', 'method' => 'post', 'id' => 'register_form', 'tabindex' => '500']) !!}
