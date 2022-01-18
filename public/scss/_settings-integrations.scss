@@ -1,0 +1,63 @@
+.account-invoicing {
+   .added-items {
+      margin-bottom: 10px;
+      .item-row {
+         padding-top: 13px;
+         padding-bottom: 13px;
+         @include media-breakpoint-down(lg) {
+            padding-right: 20px;
+         }
+         &:first-child {
+            padding-top: 0;
+         }
+         &:last-child {
+            border: 0;
+            padding-bottom: 0;
+         }
+      }
+      .info-col {
+         @include flex(centerY);
+         .icon {
+            margin-left: 22px;
+            margin-right: 34px;
+         }
+      }
+      .allow-col {
+         min-width: 131px;
+      }
+      .remove-col {
+         min-width: 144px;
+      }
+      .edit-col {
+         min-width: 187px;
+         text-align: center;
+      }
+   }
+}
+
+.account-integrations {
+   & > {
+      .added-items {
+         .item-row {
+            padding-right: 73px;
+            @include media-breakpoint-down(lg) {
+               padding-right: 20px;
+            }
+            .remove-col {
+               padding-left: 0;
+               padding-right: 0;
+               min-width: 39px;
+               text-align: left;
+            }
+            .switch-col {
+               text-align: left;
+               padding: 0 18px;
+               min-width: 102px;
+               &.emails-col {
+                  min-width: 85px;
+               }
+            }
+         }
+      }
+   }
+}

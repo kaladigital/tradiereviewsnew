@@ -1,0 +1,61 @@
+.calendar-items {
+   overflow-x: auto;
+   .calendar-item {
+      border: 1px solid $card-border-color;
+      padding: 12px 16px;
+      min-width: 570px;
+      @include border-radius(8px);
+      & + .calendar-item {
+         margin-top: 12px;
+      }
+      .form-group {
+         margin-bottom: 0;
+      }
+      .select-time {
+         padding: 0 12px;
+         width: calc(50% - 120px);
+         min-width: 170px;
+         @include media-breakpoint-down(lg) {
+            width: calc(50% - 98px);
+         }
+         // @media screen and (max-width: 1666px) {
+         // }
+      }
+      .day-name {
+         padding-right: 31px;
+         @include media-breakpoint-down(lg) {
+            padding-right: 12px;
+         }
+         span {
+            min-width: 128px;
+            padding: 16px 10px;
+            font-size: $heading6-fonts;
+            line-height: $heading6-line-height + 1;
+            font-weight: $bold-font-weight;
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            @include border-radius(8px);
+            background: $blue-alpha1;
+            color: $blue;
+         }
+      }
+      .switch-col {
+         padding-left: 32px;
+         @include media-breakpoint-down(lg) {
+            padding-left: 12px;
+         }
+      }
+      &.disabled {
+         .day-name {
+            span {
+               background: $gray-light1;
+               color: $gray;
+            }
+         }
+         .select-time {
+            display: none;
+         }
+      }
+   }
+}

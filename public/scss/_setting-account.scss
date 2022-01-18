@@ -1,0 +1,14 @@
+.account-info {
+   .form-row {
+      [class*="col-"],
+      [class^="col-"] {
+         padding-left: 8px;
+         padding-right: 8px;
+      }
+      .select-group {
+         &::after {
+            margin-right: 8px;
+         }
+      }
+   }
+}

@@ -1,0 +1,105 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+ul {
+   list-style: none;
+}
+a {
+   display: inline-block;
+   text-decoration: none;
+   color: $blue;
+}
+img {
+   max-width: 100%;
+   display: block;
+}
+body {
+   background-color: $main-bg;
+   color: $black;
+}
+html,
+body {
+   @include media-breakpoint-down(sm) {
+      min-width: 320px;
+   }
+}
+
+p {
+   color: $gray;
+}
+
+.main-logo {
+   @include media-breakpoint-down(sm) {
+      max-width: 188px;
+   }
+}
+
+.page-title {
+   margin-bottom: 30px;
+   color: $black;
+   @include media-breakpoint-down(sm) {
+      margin-bottom: 16px;
+   }
+}
+
+.card {
+   border: 1px solid $card-border-color;
+   border-radius: 8px;
+   box-shadow: $card-box-shadow;
+   .card-header {
+      border-color: $card-border-color;
+   }
+}
+.gray-text {
+   color: $gray;
+}
+.green-text {
+   color: $green;
+}
+.red-text {
+   color: $red;
+}
+::selection {
+   background-color: $yellow;
+   color: #fff;
+}
+
+.inner-container {
+   max-width: 704px;
+   @media screen and (min-width: 1666px) {
+      max-width: 1004px;
+   }
+}
+
+pre {
+   white-space: pre-wrap;
+   max-height: 126px;
+   margin-bottom: 0;
+}
+
+.smile-icon {
+   position: relative;
+   &::after {
+      content: url(../images/smile.png);
+      display: inline-block;
+      margin-left: 5px;
+      vertical-align: middle;
+   }
+}
+.container-fluid {
+   padding-left: 0;
+   padding-right: 0;
+}
+
+.scrollable-y {
+   overflow-y: auto;
+   max-height: 100%;
+}
+
+.scrollable-x {
+   overflow: hidden;
+   overflow-x: auto;
+   max-width: 100%;
+}

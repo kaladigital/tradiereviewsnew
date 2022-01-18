@@ -1,0 +1,81 @@
+//@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@include font-face("VisueltPro-Bold", "../fonts/VisueltPro-Bold", 700, normal);
+@include font-face("VisueltPro-Medium", "../fonts/VisueltPro-Medium", 500, normal);
+@include font-face("VisueltPro-Regular", "../fonts/VisueltPro-Regular", 400, normal);
+@include font-face("KetimunDEMO-Regular", "../fonts/KetimunDEMO-Regular", 400, normal);
+
+/* Color */
+$gray: #86969e;
+$gray-light1: rgba(134, 150, 158, 0.1);
+$gray-light2: rgba(134, 150, 158, 0.2);
+$gray-light: rgba(134, 150, 158, 0.4);
+$nav-color: #6a757a;
+$black: #000000;
+$main-bg: #eff2f9;
+$green: #43d14f;
+$green-light2: rgba(67, 209, 79, 0.2);
+$orange: #f8632d;
+$orange-alpha2: rgba(248, 99, 45, 0.2);
+$blue: #3962fa;
+$blue-alpha1: rgba(57, 98, 250, 0.1);
+$blue-alpha2: rgba(57, 98, 250, 0.2);
+$blue-light: #16bdc8;
+$blue-light-alpha2: rgba(22, 189, 200, 0.2);
+$blue-3: #20aef7;
+$blue-3-alpha2: rgba(32, 174, 247, 0.2);
+$pink: #fb275d;
+$pink-light: rgba(251, 39, 93, 0.1);
+$pink-light2: rgba(251, 39, 93, 0.2);
+$red: #fc2133;
+$red-alpha2: rgba(252, 33, 51, 0.2);
+$yellow: #f2c94c;
+$yellow-light: rgba(242, 201, 76, 0.5);
+$green-gradient: linear-gradient(90deg, #43d14f 0.74%, #ffffff 117.98%);
+$modal-bg: rgba(0, 0, 0, 0.6);
+
+// Border colors
+$sidebar-border-color: #dbe0e2;
+$card-border-color: rgba(134, 150, 158, 0.3);
+
+// Box shadow
+$box-shadow: 0px 3px 9px 2px rgba(229, 229, 229, 0.4);
+$card-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.08);
+
+//Border radius
+$wrapper-border-radius: 70px;
+$content-wrap-radius: 20px;
+$btn-radius: 10px;
+$form-field-radius: 8px;
+$btn-sqr-radius: 4px;
+
+//Fonts
+$default-font: "VisueltPro-Regular", sans-serif;
+$VisueltProMedium-font: "VisueltPro-Medium", sans-serif;
+$VisueltProBold-font: "VisueltPro-Bold", sans-serif;
+$note-text-font: "KetimunDEMO-Regular", sans-serif;
+$bold-font-weight: 700;
+$medium-font-weight: 500;
+$default-font-weight: 400;
+
+/* Font Size */
+$heading1-fonts: 45px;
+$note-text-fonts: 29px;
+$heading2-fonts: 26px;
+$price-fonts: 22px;
+$heading3-fonts: 20px;
+$modal-title: 18px;
+$heading5-fonts: 18px;
+$profile-text-fonts: 17px;
+$heading6-fonts: 16px;
+$nav-fonts: 16px;
+$base-font-size: 14px;
+$small-fnts: 12px;
+
+/* Line Height */
+$base-line-height: 18px;
+$note-text-line-height: 29px;
+$heading2-line-height: 28px;
+$heading3-line-height: 24px;
+$profile-text-line-height: 23px;
+$heading5-line-height: 23px;
+$heading6-line-height: 21px;

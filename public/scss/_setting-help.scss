@@ -1,0 +1,100 @@
+.help-content {
+   .help-info-row {
+      flex-direction: row;
+      padding: 16px;
+      .icon {
+         margin-right: 30px;
+         @include media-breakpoint-down(sm) {
+            margin-right: 15px;
+         }
+         @media screen and (max-width: 320px) {
+            margin-right: 0px;
+            margin-bottom: 15px;
+            display: block;
+         }
+      }
+      h5 {
+         margin-bottom: 5px;
+      }
+      @media screen and (max-width: 320px) {
+         flex-flow: row wrap;
+      }
+   }
+   .qr-code-col {
+      width: 35%;
+   }
+   .separator-border {
+      width: 24.4%;
+      @include flex(centerX);
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+         padding: 30px 15px;
+      }
+      @media screen and (max-width: 575px) {
+         padding: 30px 15px;
+      }
+      span {
+         position: relative;
+         @include flex(centerY);
+         flex-direction: column;
+         width: 21px;
+         height: 100%;
+         &::before,
+         &::after {
+            content: "";
+            height: calc(50% - 14px);
+            display: inline-block;
+            width: 1px;
+            background: rgba(134, 150, 158, 0.5);
+         }
+         &::before {
+            margin-top: 18px;
+            margin-bottom: 8px;
+         }
+         &::after {
+            margin-top: 8px;
+            margin-bottom: 18px;
+         }
+         @media screen and (min-width: 768px) and (max-width: 991px) {
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            &::before,
+            &::after {
+               content: "";
+               display: inline-block;
+               height: 1px;
+               width: calc(50% - 18px);
+               background: rgba(134, 150, 158, 0.5);
+               margin: 0 8px;
+            }
+         }
+         @media screen and (max-width: 575px) {
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            &::before,
+            &::after {
+               content: "";
+               display: inline-block;
+               height: 1px;
+               width: calc(50% - 18px);
+               background: rgba(134, 150, 158, 0.5);
+               margin: 0 8px;
+            }
+         }
+      }
+   }
+   .app-store-col {
+      width: 40%;
+   }
+   .app-info {
+      h5 {
+         margin-bottom: 16px;
+      }
+   }
+   & ~ {
+      .action-row {
+         margin-top: 0;
+      }
+   }
+}

@@ -1,0 +1,163 @@
+.privacy-terms {
+   .privacy-terms-container {
+      width: 1210px;
+      max-width: 100%;
+      margin-bottom: 130px;
+      @include media-breakpoint-down(sm) {
+         margin-bottom: 30px;
+      }
+      @include media-breakpoint-down(lg) {
+         padding-right: 50px;
+         padding-left: 50px;
+      }
+      @include media-breakpoint-down(sm) {
+         padding-right: 15px;
+         padding-left: 15px;
+      }
+      dfn {
+         font-style: normal;
+         color: $black;
+      }
+      h1 {
+         padding-top: 32px;
+         margin-bottom: 12px;
+         font-size: 45px;
+         line-height: 55px;
+         @include media-breakpoint-down(md) {
+            font-size: 32px;
+            line-height: 42px;
+         }
+         @include media-breakpoint-down(sm) {
+            font-size: 28px;
+            line-height: 35px;
+            padding-top: 15px;
+         }
+      }
+      h2 {
+         margin-top: 44px;
+         @include media-breakpoint-down(sm) {
+            font-size: 22px;
+            line-height: 28px;
+            margin-top: 25px;
+         }
+      }
+      h3 {
+         margin-top: 32px;
+         margin-bottom: 8px;
+         font-size: $heading3-fonts + 2;
+         line-height: $heading3-line-height + 2;
+         font-family: $default-font;
+         font-weight: $default-font-weight;
+         @include media-breakpoint-down(sm) {
+            font-size: 20px;
+            line-height: 24px;
+            margin-top: 20px;
+         }
+      }
+      h5 {
+         font-size: $base-font-size + 1;
+      }
+      h6 {
+         margin-top: 20px;
+         font-weight: $default-font-weight;
+         font-size: $base-font-size + 1;
+      }
+      p {
+         font-size: $base-font-size + 1;
+         margin-top: 0;
+         & + p {
+            margin-top: 16px;
+         }
+      }
+      ol,
+      ul {
+         margin: 0;
+         padding: 0;
+         list-style: none;
+         li {
+            font-size: $base-font-size + 1;
+            font-family: $default-font;
+            font-weight: $default-font-weight;
+            color: $gray;
+            line-height: 24px;
+            &::before {
+               font-family: $VisueltProMedium-font;
+               font-weight: $medium-font-weight;
+            }
+         }
+      }
+      ul {
+         padding-left: 23px;
+         li {
+            padding-left: 17px;
+            position: relative;
+            &::before {
+               content: "";
+               width: 8px;
+               height: 8px;
+               @include border-radius(15px);
+               background-color: $green;
+               position: absolute;
+               left: 0;
+               top: 7px;
+            }
+         }
+         & + ol {
+            margin-top: 16px;
+         }
+      }
+      ol {
+         margin-top: 8px;
+         li {
+            position: relative;
+         }
+         counter-reset: li;
+         & > li {
+            counter-increment: li;
+            padding-left: 23px;
+            &::before {
+               content: counter(li) ".";
+               display: inline-block;
+               color: $green;
+               position: absolute;
+               left: 0;
+               font-size: $base-font-size + 1;
+               // font-family: $default-font;
+               // font-weight: $default-font-weight;
+            }
+         }
+         &.manual-num {
+            & > li {
+               &::before {
+                  content: attr(data-count) ".";
+               }
+            }
+         }
+         &.ab {
+            margin-top: 8px;
+            margin-bottom: 8px;
+            counter-reset: listStyle;
+            & > li {
+               counter-increment: listStyle;
+               &::before {
+                  content: "(" counter(listStyle, lower-alpha) ")";
+               }
+            }
+         }
+         ul {
+            padding-top: 4px;
+            padding-left: 0;
+         }
+      }
+      a {
+         font-size: $base-font-size + 1;
+         text-decoration: underline;
+         &:hover {
+            text-decoration: none;
+         }
+         &.body-link {
+            margin-top: 16px;
+         }
+      }
+   }
+}

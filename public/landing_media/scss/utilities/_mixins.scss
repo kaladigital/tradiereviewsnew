@@ -1,0 +1,169 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+// Border radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin transition($transition...) {
+  /* defining prefixes so we can use them in mixins below*/
+  $prefixes: ("-webkit", "-ms", "-o", "");
+  @each $prefix in $prefixes {
+    #{$prefix}-transition: $transition;
+  }
+  transition: $transition;
+}
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+// translate
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+@mixin background-property {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100%;
+}
+// Flexbox display
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -moz-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -moz-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -moz-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  align-items: $value;
+}
+
+@mixin justify-content($value) {
+  @include flexbox;
+  @if $value == center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  } @else if $value == end {
+    -webkit-box-pack: flex-end;
+    -ms-flex-pack: flex-end;
+    justify-content: flex-end;
+  } @else if $value == start {
+    -webkit-box-pack: flex-start;
+    -ms-flex-pack: flex-start;
+    justify-content: flex-start;
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+    justify-content: $value;
+  }
+}
+
+@mixin flex($props) {
+  @include flexbox;
+  @if $props == center {
+    @include align-items(center);
+    justify-content: center;
+  } @else if $props == centerY {
+    @include align-items(center);
+  } @else if $props == centerX {
+    justify-content: center;
+  }
+}
+
+// Center top left both position mixin
+@mixin centerBoth {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @include transform(translateX(-50%) translateY(-50%));
+  text-align: center;
+}
+
+// Animation mixin
+@mixin animation ($delay, $duration, $animation, $direction: forward, $fillmode: fowards) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-fill-mode: $fillmode;
+    -webkit-animation-direction: $direction;
+
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-fill-mode: $fillmode;
+    -moz-animation-direction: $direction;
+
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-fill-mode: $fillmode;
+    animation-direction: $direction;
+}

@@ -1,0 +1,108 @@
+.content-nav-col {
+   width: 204px;
+   border-right: 1px solid $sidebar-border-color;
+   @include media-breakpoint-up(md) {
+      min-height: 569px;
+   }
+   @include media-breakpoint-down(sm) {
+      border-right: 0;
+   }
+   .content-nav {
+      width: 100%;
+      padding-top: 18px;
+      counter-reset: nav;
+      .nav-item {
+         margin-top: 4px;
+         padding: 12px 20px;
+         position: relative;
+         z-index: 1;
+         @include flex(centerY);
+         &::before {
+            counter-increment: nav;
+            content: counter(nav);
+            width: 16px;
+            height: 16px;
+            border-radius: 50px;
+            text-align: center;
+            border: 1px solid $gray;
+            color: $gray;
+            background-color: $white;
+            font-size: 12px;
+            line-height: 16px;
+            margin-top: -4px;
+            font-family: $default-font;
+            font-weight: $default-font-weight;
+         }
+         &::after {
+            content: "";
+            width: 1px;
+            background-color: $main-bg;
+            position: absolute;
+            left: 27.5px;
+            top: 50%;
+            bottom: -16px;
+            z-index: -1;
+         }
+         .nav-link {
+            padding: 0 0 0 9px;
+            color: $nav-color;
+            &::before {
+               content: "";
+               position: absolute;
+               left: 0;
+               top: 0;
+               right: 0;
+               bottom: 0;
+               background: $green-gradient;
+               z-index: -1;
+               opacity: 0;
+            }
+         }
+         &.active {
+            border-left: 2px solid $green;
+            padding-left: 18px;
+            &::before {
+               border-color: $green;
+               color: $green;
+            }
+            &::after {
+               left: 25.5px;
+            }
+            .nav-link {
+               color: $black;
+               &::before {
+                  opacity: 0.1;
+               }
+            }
+         }
+         &.completed {
+            &::before {
+               background-color: $green;
+               background-image: url(../images/Union.svg);
+               background-repeat: no-repeat;
+               background-position: center center;
+               content: "";
+               border-color: $green;
+            }
+            &::after {
+               background-color: $green;
+            }
+         }
+         &:hover {
+            .nav-link {
+               &::before {
+                  opacity: 0.1;
+               }
+               span {
+                  color: $black;
+               }
+            }
+         }
+         &:last-child {
+            &::after {
+               display: none;
+            }
+         }
+      }
+   }
+}

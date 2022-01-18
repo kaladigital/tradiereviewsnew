@@ -1,0 +1,110 @@
+@include font-face("VisueltPro-Black", "../fonts/VisueltPro-Black", 900, normal);
+@include font-face("VisueltPro-Bold", "../fonts/VisueltPro-Bold", 700, normal);
+@include font-face("VisueltPro-Medium", "../fonts/VisueltPro-Medium", 500, normal);
+@include font-face("VisueltPro-Regular", "../fonts/VisueltPro-Regular", 400, normal);
+
+/* Color */
+$gray: #86969e;
+$gray-dark: #1e2835;
+$gray-light1: rgba(134, 150, 158, 0.1);
+$gray-light2: rgba(134, 150, 158, 0.2);
+$gray-light3: rgba(134, 150, 158, 0.3);
+$gray-light4: rgba(134, 150, 158, 0.4);
+$gray-light5: rgba(134, 150, 158, 0.5);
+$gray-light: rgba(134, 150, 158, 0.4);
+$nav-color: #6a757a;
+$black: #000000;
+$body-bg: $white;
+$main-bg: #eff2f9;
+$main-bg-alpha3: rgba(239, 242, 249, 0.3);
+$main-bg-alpha8: rgba(239, 242, 249, 0.8);
+$green: #43d14f;
+$green-light1: rgba(67, 209, 79, 0.1);
+$green-light15: rgba(67, 209, 79, 0.15);
+$green-light2: rgba(67, 209, 79, 0.2);
+$green-light3: rgba(67, 209, 79, 0.3);
+$green-light05: rgba(67, 209, 79, 0.05);
+$orange: #f8632d;
+$orange-alpha1: rgba(248, 99, 45, 0.1);
+$orange-alpha2: rgba(248, 99, 45, 0.2);
+$orange-alpha3: rgba(248, 99, 45, 0.3);
+$blue: #3962fa;
+$blue-alpha1: rgba(57, 98, 250, 0.1);
+$blue-alpha2: rgba(57, 98, 250, 0.2);
+$blue-alpha3: rgba(57, 98, 250, 0.3);
+$blue-alpha4: rgba(57, 98, 250, 0.4);
+$blue-alpha5: rgba(57, 98, 250, 0.05);
+$blue-light: #16bdc8;
+$blue-light-alpha1: rgba(22, 189, 200, 0.1);
+$blue-light-alpha2: rgba(22, 189, 200, 0.2);
+$blue-light-alpha3: rgba(22, 189, 200, 0.3);
+$blue-3: #20aef7;
+$blue-3-alpha1: rgba(32, 174, 247, 0.1);
+$blue-3-alpha2: rgba(32, 174, 247, 0.2);
+$blue-3-alpha3: rgba(32, 174, 247, 0.3);
+$purple: #9b51e0;
+$pink: #fb275d;
+$pink-light: rgba(251, 39, 93, 0.1);
+$pink-light2: rgba(251, 39, 93, 0.2);
+$red: #fc2133;
+$red-alpha2: rgba(252, 33, 51, 0.2);
+$yellow: #f2c94c;
+$rating-yellow: #FCC12E;
+$yellow-light: rgba(242, 201, 76, 0.5);
+$green-gradient: linear-gradient(90deg, #43d14f 0.74%, #ffffff 117.98%);
+$blue-gradient: linear-gradient(90deg, #3962FA 0.74%, #ffffff 117.98%);
+$modal-bg: rgba(0, 0, 0, 0.6);
+$nav-link-color: #313A49;
+
+// Border colors
+$sidebar-border-color: #dbe0e2;
+$card-border-color: rgba(134, 150, 158, 0.3);
+
+// Box shadow
+$box-shadow: 0px 3px 9px 2px rgba(229, 229, 229, 0.4);
+$card-box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.08);
+
+//Border radius
+$wrapper-border-radius: 70px;
+$content-wrap-radius: 20px;
+$btn-radius: 10px;
+$form-field-radius: 8px;
+$btn-sqr-radius: 4px;
+
+//Fonts
+$default-font: "VisueltPro-Regular", sans-serif;
+$VisueltProMedium-font: "VisueltPro-Medium", sans-serif;
+$VisueltProBold-font: "VisueltPro-Bold", sans-serif;
+$VisueltProBlack-font: "VisueltPro-Black", sans-serif;
+$bold-font-weight: 700;
+$medium-font-weight: 500;
+$default-font-weight: 400;
+
+/* Font Size */
+$heading1-fonts: 50px;
+$heading1-sm-fonts: 45px;
+$heading1-xsm-fonts: 30px;
+$heading2-fonts: 45px;
+$heading2-sm-fonts: 30px;
+$heading2-xsm-fonts: 25px;
+$lead-fonts: 20px;
+$heading3-fonts: 24px;
+$heading3-sm-fonts: 20px;
+$heading3-xsm-fonts: 18px;
+$heading5-fonts: 18px;
+$heading6-fonts: 16px;
+$nav-fonts: 14px;
+$base-font-size: 15px;
+$small-fnts: 12px;
+$btn-fonts: 14px;
+
+/* Line Height */
+$base-line-height: 24px;
+$heading1-line-height: 60px;
+$heading2-line-height: 55px;
+$heading3-line-height: 31px;
+$lead-line-height: 32px;
+$profile-text-line-height: 23px;
+$heading5-line-height: 23px;
+$heading6-line-height: 21px;
+$btn-line-height: 18px;

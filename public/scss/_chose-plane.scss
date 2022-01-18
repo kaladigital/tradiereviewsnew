@@ -1,0 +1,215 @@
+.choose-plan-inner {
+   & > .row {
+      margin-left: -8px;
+      margin-right: -8px;
+      & > {
+         [class*="col-"],
+         [class^="col-"] {
+            padding-right: 8px;
+            padding-left: 8px;
+         }
+      }
+   }
+}
+.select-plan-row {
+   & > div {
+      & > h6 {
+         margin-bottom: 16px;
+      }
+   }
+   .plan-item {
+      background: #ffffff;
+      border: 1px solid rgba(134, 150, 158, 0.4);
+      border-radius: 18px;
+      padding: 24px;
+      cursor: pointer;
+      @include media-breakpoint-down(sm) {
+         padding: 15px;
+         border-radius: 8px;
+      }
+      &.active {
+         border-color: $green;
+      }
+      figure {
+         width: 50px;
+         height: 50px;
+         border: 2px solid $green;
+         border-radius: 4px;
+         margin-right: 8px;
+         margin-bottom: 0;
+         @include flexbox;
+         img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: 0 auto;
+            align-self: flex-end;
+         }
+      }
+      .plan-info {
+         width: calc(100% - 58px);
+         p {
+            margin-bottom: 0;
+         }
+      }
+   }
+   & > div {
+      &:last-child {
+         figure {
+            img {
+               margin-left: 0;
+            }
+         }
+      }
+   }
+}
+.total-payable-row {
+   h6 {
+      margin-bottom: 0;
+   }
+}
+
+.price {
+   font-size: $price-fonts;
+   line-height: $heading2-line-height;
+   color: $black;
+}
+
+.payment-method {
+   &-form-wrap {
+      display: none;
+      &.form-shown {
+         display: block;
+         & ~ .card-info-wrap {
+            margin-top: 16px;
+         }
+      }
+   }
+}
+
+.card-info-wrap {
+   & > {
+      [class^="col-"],
+      [class*="col-"] {
+         padding-left: 15px !important;
+         padding-right: 15px !important;
+      }
+   }
+   .card-action-col {
+      .btn {
+         display: block;
+         & + .btn {
+            margin-left: 0;
+            margin-top: 20px;
+         }
+         @media screen and (min-width: 831px) and (max-width: 991px) {
+            display: inline-block;
+            & + .btn {
+               margin-top: 0;
+               margin-left: 13px;
+            }
+         }
+
+         @media screen and (max-width: 576px) {
+            & + .btn {
+               margin-top: 1rem;
+            }
+         }
+      }
+   }
+   @media screen and (min-width: 991px) and (max-width: 1666px) {
+      .card-figure {
+         flex-basis: 51%;
+      }
+   }
+   .card-figure {
+      .card {
+         border: 0;
+         @include border-radius(12px);
+         overflow: hidden;
+         .card-info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            @include flexbox;
+            flex-flow: row wrap;
+         }
+         .card-number {
+            align-self: flex-end;
+            text-align: center;
+            margin: 0;
+            width: 100%;
+            padding: 0px 7px;
+            size: 25px;
+            color: $white;
+            letter-spacing: 1px;
+            font-weight: 400;
+            line-height: 30px;
+            [class*="col-"],
+            [class^="col-"] {
+               &:first-child {
+                  margin-left: 0 !important;
+               }
+               &:last-child {
+                  margin-right: 0 !important;
+               }
+               &:not(.last-digit) {
+                  font-size: 30px;
+               }
+            }
+         }
+         .card-icon {
+            width: auto;
+            height: 65px;
+            @include flex(centerY);
+            -webkit-box-pack: end;
+            -ms-flex-pack: end;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+            margin-right: 30px;
+            margin-left: auto;
+            align-self: flex-end;
+            img {
+               display: none;
+            }
+            &.master-card {
+               .master-card {
+                  display: block;
+               }
+            }
+            &.visa-card {
+               .visa-card {
+                  display: block;
+               }
+            }
+            &.jcb-card {
+               .jcb-card {
+                  display: block;
+               }
+            }
+            &.diners-club-card {
+               .diners-club-card {
+                  display: block;
+               }
+            }
+            &.american-express-card {
+               .american-express-card {
+                  display: block;
+               }
+            }
+            &.discover-card {
+               .discover-card {
+                  display: block;
+               }
+            }
+            &.unknown-card {
+               .unknown-card {
+                  display: block;
+               }
+            }
+         }
+      }
+   }
+}

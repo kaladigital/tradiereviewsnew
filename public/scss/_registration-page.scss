@@ -1,0 +1,66 @@
+.registration-page {
+   .inner-container {
+      a {
+         &:not(.btn) {
+            font-family: $default-font !important;
+            font-weight: $default-font-weight !important;
+            text-decoration: underline;
+         }
+         &:hover {
+            text-decoration: none;
+         }
+      }
+   }
+   .form-style2 {
+      &.form-wrap {
+         & > p {
+            font-size: $base-font-size;
+            font-family: $default-font;
+            font-weight: $default-font-weight;
+            a {
+               font-family: $default-font;
+               font-weight: $default-font-weight;
+            }
+         }
+      }
+   }
+   .thumb-section {
+      justify-content: center;
+      padding: 50px 20px 50px 43px;
+      @include media-breakpoint-down(md) {
+         padding: 50px;
+      }
+      @media screen and (max-width: 575px) {
+         padding: 50px 20px;
+      }
+      .figure-image {
+         clip-path: none;
+         width: 1012px;
+         max-width: 100%;
+         margin-left: 0;
+         margin-top: 0;
+      }
+      .thumb-inner {
+         h1 {
+            max-width: 576px;
+            margin: -13% auto 0;
+            text-align: center;
+            font-size: 45px;
+            line-height: 55px;
+            position: relative;
+            z-index: 5;
+            @include media-breakpoint-down(lg) {
+               font-size: 34px;
+               line-height: 45px;
+            }
+            @media screen and (max-width: 565px) {
+               font-size: 28px;
+               line-height: 38px;
+            }
+            @media screen and (max-width: 320px) {
+               font-size: 22px;
+            }
+         }
+      }
+   }
+}

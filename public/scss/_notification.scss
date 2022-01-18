@@ -1,0 +1,180 @@
+.notification {
+   &.dropdown {
+      margin-right: 36px;
+      @include media-breakpoint-down(sm) {
+         margin-right: 24px;
+      }
+      @media screen and (max-width: 320px) {
+         margin-right: 10px;
+      }
+      .notification-triger {
+         width: 18px;
+         height: 20px;
+         position: relative;
+         img {
+            @include centerBoth;
+            &.green-icon {
+               opacity: 0;
+               visibility: hidden;
+            }
+         }
+         .notifications-bubble {
+            position: absolute;
+            top: -2px;
+            right: -3px;
+            width: 14px;
+            height: 14px;
+            @include border-radius(15px);
+            background-color: $red;
+            border: 3px solid $white;
+            z-index: 9;
+            display: block;
+         }
+         &.active {
+            .notifications-bubble {
+               opacity: 0;
+               visibility: hidden;
+            }
+            img {
+               &.gray-icon {
+                  opacity: 0;
+                  visibility: hidden;
+               }
+               &.green-icon {
+                  opacity: 1;
+                  visibility: visible;
+               }
+            }
+         }
+      }
+      .dropdown-menu {
+         &.card {
+            position: absolute;
+            min-width: 360px;
+            left: auto;
+            right: -156px;
+            background: $white;
+            padding: 0;
+            margin-top: 18px;
+            box-shadow: $card-box-shadow;
+            overflow: hidden;
+            display: none;
+            &.expanded {
+               display: block;
+            }
+            @include border-radius(4px);
+            @include media-breakpoint-down(sm) {
+               right: -67px;
+            }
+            @media screen and (max-width: 400px) {
+               min-width: 10px;
+               width: 280px;
+            }
+            @media screen and (max-width: 320px) {
+               width: 260px;
+            }
+            a {
+               &:hover {
+                  text-decoration: none;
+               }
+            }
+            .card-header {
+               background: $white;
+               padding: 16px 16px 12px;
+               @include border-radius(8px 8px 0 0);
+               h5 {
+                  margin-bottom: 0;
+               }
+            }
+            .card-body {
+               padding: 16px;
+               max-height: 350px;
+               overflow-y: auto;
+               box-shadow: none;
+               border: 0;
+            }
+            .notification-item {
+               padding: 12px;
+               background: $white;
+               border: 1px solid $main-bg;
+               box-shadow: -1px 0px 10px rgba(134, 150, 158, 0.2);
+               @include border-radius(8px);
+               .icon {
+                  min-width: 36px;
+                  min-height: 36px;
+                  width: 36px;
+                  height: 36px;
+                  @include border-radius(8px);
+                  @include flex(center);
+                  margin-right: 10px;
+               }
+               .info {
+                  width: calc(100% - 70px);
+                  margin-right: 8px;
+                  @media screen and (max-width: 400px) {
+                     min-width: 10px;
+                  }
+                  p {
+                     color: $black;
+                     margin-bottom: 0;
+                     font-size: $base-font-size;
+                     span {
+                        text-transform: capitalize;
+                     }
+                  }
+                  & > span {
+                     display: block;
+                     color: $gray;
+                     font-size: $small-fnts;
+                     line-height: 18px;
+                  }
+               }
+               .view-arrow {
+                  width: 16px;
+                  height: 16px;
+                  margin-top: 10px;
+               }
+               &.success {
+                  .icon {
+                     background: $green-light2;
+                  }
+                  .info {
+                     p {
+                        span {
+                           color: $green;
+                        }
+                     }
+                  }
+               }
+               &.error {
+                  .icon {
+                     background: $red-alpha2;
+                  }
+                  .info {
+                     p {
+                        span {
+                           color: $red;
+                        }
+                     }
+                  }
+               }
+               & + .notification-item {
+                  margin-top: 8px;
+               }
+            }
+            .card-footer {
+               background-color: $white;
+               padding: 12px;
+               text-align: center;
+               border-color: $main-bg;
+               a {
+                  font-size: $base-font-size;
+                  &:hover {
+                     color: $green;
+                  }
+               }
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,102 @@
+.main-header {
+   padding: 32px 100px 32px 30px;
+   @include media-breakpoint-down(sm) {
+      padding: 30px 20px 26px;
+   }
+}
+
+.nav-toggler {
+   padding: 0 5px;
+   text-align: center;
+   position: relative;
+   color: $black;
+   margin-right: 30px;
+   @include media-breakpoint-down(sm) {
+      margin-right: 20px;
+   }
+   span,
+   &::before,
+   &::after {
+      content: "";
+      width: 16px;
+      height: 3px;
+      background: currentColor;
+      display: block;
+      margin: 0 auto;
+      border-radius: 6px;
+   }
+   span {
+      width: 28px;
+      margin: 4px 0;
+   }
+   &.expanded {
+      width: 28px;
+      height: 17px;
+      span {
+         display: none;
+      }
+      &::before,
+      &::after {
+         position: absolute;
+         width: 20px;
+         @include transform(rotate(45deg));
+      }
+      &::before {
+         @include transform(rotate(-45deg));
+      }
+   }
+   @media screen and (max-width: 320px) {
+      margin-right: 10px;
+      span,
+      &::before,
+      &::after {
+         width: 20px;
+      }
+   }
+}
+
+.logo-wrap {
+   margin-right: 20px;
+   @include media-breakpoint-down(sm) {
+      width: calc(100% - 150px);
+      max-width: 188px;
+   }
+   @media screen and (max-width: 320px) {
+      width: calc(100% - 100px);
+      margin-right: 10px;
+   }
+}
+
+.profile-pic {
+   width: 48px;
+   height: 48px;
+   position: relative;
+   background-color: $white;
+   border: 1px solid rgba(67, 209, 79, 0.3);
+   border-radius: 50px;
+   margin-bottom: 0;
+   @include flex(center);
+   @include media-breakpoint-down(sm) {
+      width: 38px;
+      height: 38px;
+   }
+   img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+   span {
+      font-size: $profile-text-fonts;
+      line-height: $profile-text-line-height;
+      color: $green;
+      text-transform: uppercase;
+      margin-bottom: -2px;
+   }
+   @media screen and (max-width: 320px) {
+      width: 32px;
+      height: 32px;
+      span {
+         font-size: $small-fnts;
+      }
+   }
+}

@@ -1,0 +1,64 @@
+.btn {
+   border: 0;
+   background: transparent;
+   cursor: pointer;
+   box-shadow: none;
+   padding: 0;
+   border-radius: 0;
+   font-size: $base-font-size;
+   line-height: $base-line-height;
+   font-family: $VisueltProMedium-font;
+   font-weight: $medium-font-weight;
+   white-space: nowrap;
+   .icon {
+      margin-right: 8px;
+   }
+   &:focus {
+      outline: none;
+      box-shadow: none;
+   }
+   &.disabled,
+   &:disabled {
+      opacity: 0.5;
+   }
+   &--round {
+      border-radius: $btn-radius;
+      padding: 8px 29px;
+      min-width: 118px;
+      @media screen and (max-width: 320px) {
+         min-width: 10px;
+      }
+   }
+   &--sqr {
+      border-radius: $btn-sqr-radius;
+      padding: 19px 25px;
+      min-width: 173px;
+      font-family: $VisueltProBold-font;
+      font-weight: 700;
+      @include media-breakpoint-down(sm) {
+         padding: 15px 20px 13px;
+      }
+   }
+   &-primary {
+      background-color: $green !important;
+      border: 1px solid $green !important;
+      color: $white !important;
+   }
+   &-secondary {
+      background-color: $main-bg !important;
+      border: 1px solid rgba(134, 150, 158, 0.3) !important;
+      color: $black !important;
+   }
+   & + .btn {
+      margin-left: 13px;
+   }
+   &.green-outline {
+      border: 1px solid $green;
+      padding: 8px 33px;
+      min-width: 93px;
+   }
+   &-outline {
+      border: 1px solid $main-bg;
+      background-color: transparent;
+   }
+}

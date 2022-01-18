@@ -1,0 +1,9 @@
+.widget-box{
+   background: $white;
+   box-shadow: $box-shadow;
+   @include border-radius(20px);
+   padding: 32px;
+   &+.widget-box{
+      margin-top: 32px;
+   }
+}

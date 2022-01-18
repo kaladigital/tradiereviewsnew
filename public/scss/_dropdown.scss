@@ -1,0 +1,295 @@
+.dropdown-menu {
+   margin-top: 0;
+   padding-top: 6px;
+   background: transparent;
+   border: 0;
+   box-shadow: none;
+   .dropdown-inner {
+      background: $white;
+      box-shadow: -1px 0px 10px rgba(134, 150, 158, 0.2);
+      border-radius: 4px;
+      padding: 4px 0;
+      min-width: 170px;
+   }
+   .dropdown-item {
+      color: $gray;
+      font-size: 14px;
+      line-height: 18px;
+      padding: 8px 17px;
+      @include flex(centerY);
+      img {
+         margin-right: 16px;
+      }
+      &:hover {
+         background: $main-bg;
+      }
+   }
+   &.expanded {
+      display: block;
+   }
+}
+.dropdown {
+   &:hover {
+      .dropdown-menu {
+         display: block;
+      }
+   }
+}
+
+.dropdown-wrap {
+   position: relative;
+   z-index: 3;
+   & > .btn {
+      position: relative;
+   }
+   .dropdown-items {
+      background: $white;
+      box-shadow: -1px 0px 10px rgba(134, 150, 158, 0.2);
+      border-radius: 4px;
+      position: absolute;
+      width: 100%;
+      min-width: 100%;
+      z-index: 9;
+      opacity: 0;
+      visibility: hidden;
+      margin-top: 10px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      z-index: 2;
+      overflow: hidden;
+      @include transition(all 0.3s ease-in);
+      &::before {
+         content: "";
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         background: $white;
+         z-index: -1;
+      }
+      li {
+         white-space: nowrap;
+         font-size: $base-font-size;
+         line-height: $base-line-height;
+         padding: 8px 12px;
+         width: 100%;
+         cursor: pointer;
+         color: $gray;
+         @include transition(all 0.3s ease-in-out);
+         @include flex(centerY);
+         &:hover {
+            background-color: $main-bg;
+         }
+      }
+      &.with-icons {
+         li {
+            .icon {
+               max-width: 16px;
+               margin-right: 16px;
+               margin-left: 4px;
+            }
+            &[data-selected="selected"] {
+               .icon {
+                  svg * {
+                     fill: $green;
+                  }
+               }
+            }
+         }
+      }
+   }
+   &.custom-select-group {
+      .select-toggler {
+         width: 100%;
+         height: 54px;
+         border: 1px solid $card-border-color;
+         padding: 8px 16px;
+         position: relative;
+         z-index: 3;
+         cursor: pointer;
+         @include border-radius(8px);
+         &.focus {
+            border-color: $green;
+         }
+         &::after {
+            content: "";
+            width: 12px;
+            height: 7px;
+            background: url(../images/select-union.svg);
+            position: absolute;
+            right: 16px;
+            bottom: 15px;
+            z-index: -1;
+         }
+         .label {
+            font-size: $small-fnts + 1;
+            line-height: 17px;
+            color: $gray;
+         }
+         .selected {
+            position: relative;
+            font-size: $heading6-fonts;
+            line-height: $heading6-line-height;
+            color: $black;
+            @include flexbox;
+            &::before {
+               content: "";
+               width: 12px;
+               height: 12px;
+               margin-right: 8px;
+               margin-top: 2px;
+               background: $gray;
+               @include border-radius(50px);
+            }
+            &.all {
+               &::before {
+                  background: url(../images/all-filter.svg);
+               }
+            }
+            &.leads {
+               &::before {
+                  background: $blue-light;
+               }
+            }
+            &.not-listed {
+               &::before {
+                  background: $orange;
+               }
+            }
+            &.quote-meeting {
+               &::before {
+                  background: $blue-3;
+               }
+            }
+            &.in-progress {
+               &::before {
+                  background: $blue;
+               }
+            }
+            &.job-completed {
+               &::before {
+                  background: $green;
+               }
+            }
+            &.cancelled {
+               &::before {
+                  background: $gray;
+               }
+            }
+         }
+      }
+      &.expanded {
+         .select-toggler {
+            &::after {
+               @include transform(scaleY(-1));
+            }
+         }
+         .dropdown-items {
+            margin-top: 4px;
+         }
+      }
+      .dropdown-items {
+         li {
+            &:not([data-selected="selected"]) {
+               &:hover {
+                  background: $green;
+                  color: $white;
+               }
+            }
+            &::before {
+               content: "";
+               width: 8px;
+               height: 8px;
+               margin-right: 4px;
+               margin-top: -2px;
+               display: block;
+               background-size: cover !important;
+               @include border-radius(50px);
+            }
+            &::after {
+               content: url(../images/check-icon-green.svg);
+               margin-left: auto;
+               display: inline-block !important;
+               opacity: 0;
+               visibility: hidden;
+            }
+            &[data-selected="selected"] {
+               background: $main-bg;
+               &::after {
+                  opacity: 1;
+                  visibility: visible;
+               }
+            }
+            &[data-label="all"] {
+               &::before {
+                  background: url(../images/all-filter.svg);
+               }
+            }
+            &[data-label="cancelled"] {
+               &::before {
+                  background: $gray;
+               }
+            }
+            &[data-label="job-completed"] {
+               &::before {
+                  background: $green;
+               }
+            }
+            &[data-label="in-progress"] {
+               &::before {
+                  background: $blue;
+               }
+            }
+            &[data-label="quote-meeting"] {
+               &::before {
+                  background: $blue-3;
+               }
+            }
+            &[data-label="not-listed"] {
+               &::before {
+                  background: $orange;
+               }
+            }
+            &[data-label="leads"] {
+               &::before {
+                  background: $blue-light;
+               }
+            }
+            &[data-label="cancelled"] {
+               &::before {
+                  background: $gray;
+               }
+            }
+            &[data-label="cancelled"] {
+               &::before {
+                  background: $gray;
+               }
+            }
+            &[data-label="cancelled"] {
+               &::before {
+                  background: $gray;
+               }
+            }
+            &[data-label="cancelled"] {
+               &::before {
+                  background: $gray;
+               }
+            }
+         }
+      }
+   }
+   &.focus {
+      .btn {
+         border-color: $green;
+      }
+   }
+   &.expanded {
+      z-index: 25;
+      .dropdown-items {
+         opacity: 1;
+         visibility: visible;
+         margin-top: 6px;
+      }
+   }
+}

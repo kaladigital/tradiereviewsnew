@@ -1,0 +1,99 @@
+.sidebar-wrap {
+   width: 98px;
+   min-height: calc(100vh - 112px);
+   &.expanded {
+      width: 250px;
+      .navbar-nav {
+         .nav-item {
+            .nav-link {
+               span {
+                  display: block;
+               }
+            }
+         }
+      }
+   }
+   @include media-breakpoint-down(md) {
+      width: 100%;
+      position: fixed;
+      left: 0;
+      z-index: 9;
+      background-color: $main-bg;
+      opacity: 0;
+      visibility: hidden;
+      @include transition(all 0.3s ease-in);
+      .sidebar {
+         min-height: calc(100vh - 112px);
+         max-height: calc(100vh - 112px);
+         overflow-y: auto;
+         @include transform(translateX(-100%));
+         @include transition(transform 0.3s ease-in);
+         .navbar-nav {
+            .nav-item {
+               .nav-link {
+                  span {
+                     display: block;
+                     font-size: 18px;
+                  }
+               }
+            }
+         }
+      }
+      &.expanded {
+         opacity: 1;
+         visibility: visible;
+         width: 100%;
+         .sidebar {
+            @include transform(translateX(0%));
+            transition-delay: 0.2s;
+         }
+      }
+   }
+   .navbar-nav {
+      padding-top: 22px;
+      padding-bottom: 22px;
+      .nav-item {
+         width: 100%;
+         margin-top: 48px;
+         padding-left: 25px;
+         @include media-breakpoint-down(md) {
+            margin-top: 30px;
+         }
+         .nav-link {
+            color: $gray;
+            padding: 0;
+            @include flex(centerY);
+            .nav-icon {
+               width: 28px;
+               height: 28px;
+               @include flex(center);
+               svg {
+                  path {
+                     fill: currentColor;
+                  }
+               }
+            }
+            span {
+               margin-left: 18px;
+               font-size: $nav-fonts;
+               display: none;
+            }
+         }
+         &.active {
+            .nav-link {
+               color: $gray;
+               .nav-icon {
+                  svg {
+                     path {
+                        fill: $green;
+                     }
+                  }
+               }
+               span {
+                  color: $black;
+               }
+            }
+         }
+      }
+   }
+}

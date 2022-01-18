@@ -1,0 +1,83 @@
+.main-footer-section{
+   background-color: $black;
+   padding: 60px 0;
+   color: $white;
+   @include media-breakpoint-down(sm){
+      padding: 50px 0 30px;
+   }
+   .container{
+      @include media-breakpoint-up(xl){
+         max-width: 1006px;
+      }
+   }
+   h2,p{
+      color: $white;
+      margin-bottom: 0;
+   }
+   h2{
+      @include media-breakpoint-down(sm){
+         margin-bottom: 15px;
+      }
+   }
+   .newsletter-row{
+      margin-top: 12px;
+      @include media-breakpoint-down(sm){
+         margin-top: 0;
+      }
+   }
+
+   .form-group{
+      background-color: transparent;
+      margin-bottom: 0;
+      .form-control{
+         background-color: transparent;
+         color: $white;
+         padding-right: 110px;
+         border-color: $gray-light4;
+      }
+      .btn,
+      label{
+         color: $white;
+      }
+      .btn{
+         margin-right: 20px;
+         padding-right: 10px !important;
+         padding-left: 10px !important;
+         right: 0 !important;
+         @include media-breakpoint-down(sm){
+            width: 80px !important;
+            margin-top: 0 !important;
+            position: absolute !important;
+            right: 2px !important;
+            top: 3px !important;
+            margin-right: 0;
+         }
+         &::after{
+            content: "";
+            width: 16px;
+            height: 10px;
+            background-image: url(../images/long-arrow-right.svg);
+            background-repeat: no-repeat;
+            background-position: center right;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 15px;
+         }
+      }
+   }
+   .copyright-area{
+      margin-top: 42px;
+      border-top: 1px solid rgba($color: $white, $alpha: 0.2);
+      text-align: center;
+      padding-top: 47px;
+      line-height: 18px;
+      font-size: $base-font-size - 1;
+      @include media-breakpoint-down(sm){
+         margin-top: 20px;
+         padding-top: 30px;
+      }
+      p{
+         margin-bottom: 0;
+      }
+   }
+}

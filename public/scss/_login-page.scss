@@ -1,0 +1,125 @@
+.registration-page,
+.login-page {
+   .form-section,
+   .thumb-section {
+      min-height: 100vh;
+      @include media-breakpoint-down(md) {
+         min-height: 100px;
+      }
+   }
+   .form-section {
+      width: 43.88888888888889%;
+      background: $white;
+      @media screen and (min-width: 992px) and (max-width: 1080px) {
+         width: 48%;
+      }
+      .inner-container {
+         max-width: 100%;
+         width: 476px;
+         margin: 0 auto;
+         padding: 150px 50px;
+         @include flex(centerY);
+         flex-flow: row wrap;
+         min-height: 100vh;
+         @include media-breakpoint-down(md) {
+            width: 80%;
+            min-height: 400px;
+            padding: 50px 0;
+         }
+         @include media-breakpoint-down(sm) {
+            width: 90%;
+            min-height: 400px;
+            padding: 50px 0;
+         }
+         .login-content-wrapper {
+            width: 100%;
+         }
+         .main-logo {
+            position: absolute;
+            top: 40px;
+            @include media-breakpoint-down(md) {
+               position: relative;
+               top: auto;
+            }
+         }
+         h1 {
+            @include media-breakpoint-down(md) {
+               margin-top: 80px;
+            }
+            @include media-breakpoint-down(sm) {
+               margin-top: 50px;
+            }
+         }
+         h6 {
+            margin-top: 24px;
+            color: $gray;
+            font-family: $default-font;
+            font-weight: $default-font-weight;
+         }
+         a {
+            font-family: $VisueltProMedium-font;
+            font-weight: $medium-font-weight;
+         }
+      }
+   }
+   .thumb-section {
+      width: calc(100% - 43.88888888888889%);
+      background: $main-bg;
+      position: relative;
+      @include flexbox;
+      flex-flow: row wrap;
+      justify-content: flex-end;
+      @media screen and (min-width: 992px) and (max-width: 1080px) {
+         width: calc(100% - 48%);
+      }
+      .action-buttons {
+         width: 100%;
+         .container {
+            max-width: 688px;
+            padding: 40px 20px 0;
+            margin: 0 auto;
+            clear: both;
+            @include flexbox;
+            justify-content: center;
+            flex-flow: row wrap;
+            .button-item,
+            .button-item .btn,
+            .button-item .btn img {
+               width: 70px;
+               height: 80px;
+            }
+            .button-item {
+               position: relative;
+               margin: -4px 5px;
+               @media screen and (max-width: 1211px) {
+                  margin: 5px;
+               }
+               @include media-breakpoint-down(md) {
+                  margin: -4px 5px;
+               }
+               @include media-breakpoint-down(sm) {
+                  margin: 5px;
+               }
+               .btn {
+                  filter: drop-shadow(-1px 0px 10px rgba(134, 150, 158, 0.2));
+                  @include transition(transform 0.3s ease-in-out);
+               }
+               &:hover {
+                  z-index: 99;
+                  .btn {
+                     @include transform(scale(1.2));
+                  }
+               }
+            }
+         }
+      }
+      .figure-image {
+         max-width: calc(100% - 64px);
+         align-self: flex-end;
+         margin-top: -55px;
+         position: relative;
+         -webkit-clip-path: polygon(0 34%, 47% 14%, 66% 0px, 100% 15%, 100% 100%, 0 100%);
+         clip-path: polygon(0 34%, 47% 14%, 66% 0px, 100% 15%, 100% 100%, 0 100%);
+      }
+   }
+}

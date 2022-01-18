@@ -1,0 +1,434 @@
+.clients-funnel-view {
+   .dragable-items-wrap {
+      margin-bottom: 0;
+      .dragable-item {
+         border: 1px solid transparent;
+         cursor: pointer;
+         & + .dragable-item {
+            margin-top: 12px;
+         }
+         &:active {
+            background-color: $blue-alpha1;
+            border: 1px dashed #3962fa;
+            cursor: grab;
+         }
+         @include border-radius(7px);
+         .progress {
+            height: auto;
+            margin-top: 16px;
+            background: transparent;
+            .progress-bar {
+               flex-grow: 1;
+               background: $main-bg;
+               height: 4px;
+               @include border-radius(8px);
+            }
+         }
+         .info {
+            background-color: $white;
+            box-shadow: -1px 0px 10px rgba(134, 150, 158, 0.1);
+            border: 1px solid rgba(134, 150, 158, 0.2);
+            padding: 16px 12px;
+            position: relative;
+            @include border-radius(7px);
+            strong {
+               display: block;
+               color: $black;
+               font-size: $heading6-fonts;
+            }
+            & > span {
+               display: block;
+               width: 100%;
+               padding-top: 8px;
+               opacity: 0.8;
+               &:not(.no-value) {
+                  color: $gray;
+               }
+            }
+            .options-wrap {
+               position: absolute;
+               left: auto;
+               right: 12px;
+               top: 22px;
+               width: 18px;
+               .btn {
+                  width: auto;
+                  padding: 0;
+                  position: relative;
+                  @include flex(center);
+                  span,
+                  &::before,
+                  &::after {
+                     content: "";
+                     width: 4px;
+                     height: 4px;
+                     background: $gray;
+                     display: block;
+                     @include border-radius(50px);
+                  }
+                  span {
+                     margin: 0 3px;
+                  }
+               }
+               .dropdown-items {
+                  left: auto;
+                  right: 0;
+               }
+               &.expanded {
+                  .btn {
+                     span,
+                     &::before,
+                     &::after {
+                        background: $green;
+                     }
+                  }
+                  .dropdown-items {
+                     margin-top: 5px;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+.progress {
+   overflow: visible;
+   position: relative;
+   @include flex(centerY);
+   flex-flow: row wrap;
+   &::after {
+      content: attr(data-progress);
+      position: absolute;
+      right: 0;
+      top: 5px;
+      margin-top: 8px;
+      left: auto;
+      margin-left: auto;
+      font-weight: $VisueltProBold-font;
+      font-weight: $bold-font-weight;
+      font-size: $small-fnts;
+      line-height: 14px;
+      color: $black;
+   }
+   .progress-bar {
+      color: currentColor;
+      width: 100%;
+      .processing {
+         height: 4px;
+         @include border-radius(8px);
+         background: currentColor;
+      }
+   }
+}
+
+.funnel-items-wrapper {
+   overflow: hidden;
+   overflow-x: auto;
+   margin-top: 13px;
+   padding-top: 20px;
+   margin-left: -10px;
+   margin-right: -10px;
+   padding-left: 10px;
+   padding-right: 10px;
+   position: relative;
+   &::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      top: 0;
+      height: 1px;
+      background-color: $main-bg;
+   }
+   .list-items {
+      min-width: 1130px;
+      & > .row {
+         margin-left: -10px;
+         margin-right: -10px;
+         &.items-body {
+            margin-top: 12px;
+         }
+      }
+   }
+   .items-heading {
+      //background-color: #fafbff;
+      @include border-radius(20px 20px 0 0);
+      align-items: center;
+      .col-auto {
+         padding: 0 10px;
+         h6 {
+            width: 100%;
+            padding-top: 23px;
+            padding-bottom: 23px;
+            margin-bottom: 0;
+            background: $white;
+            box-shadow: 0px 1px 15px 2px rgba(29, 29, 29, 0.08);
+            text-align: center;
+            @include border-radius(7px);
+         }
+         //border-bottom: 2px solid $main-bg;
+         @include flex(center);
+         h6 {
+            text-transform: uppercase;
+            position: relative;
+            color: currentColor;
+            @include flex(center);
+            overflow: hidden;
+            line-height: 22px;
+            &::before {
+               content: "";
+               position: absolute;
+               left: 0;
+               top: 50%;
+               width: 38px;
+               height: 38px;
+               margin-top: -19px;
+               margin-left: -19px;
+               background-color: currentColor;
+               @include border-radius(50px);
+            }
+            span {
+               margin-bottom: -2px;
+            }
+         }
+      }
+   }
+}
+
+.list-items {
+   min-width: 1170px;
+   .col-auto {
+      width: calc(100% / 5);
+      .scrollable-y {
+         padding: 0 10px;
+      }
+      .no-value {
+         color: $red;
+      }
+      &.col-auto {
+         //border-left: 2px solid $main-bg;
+      }
+      &.not-listed {
+         color: $orange;
+      }
+      &.leads {
+         color: $blue-light;
+      }
+      &.quote-meetings {
+         color: $blue-3;
+      }
+      &.work-in-progress {
+         color: $blue;
+      }
+      &.job-completed {
+         color: $green;
+      }
+      &.cancelled {
+         color: $gray;
+      }
+   }
+}
+
+.client-main {
+   .scrollable-y {
+      height: calc(100vh - 320px);
+   }
+   .more {
+      .dropdown-wrap {
+         .dropdown-items {
+            min-width: 183px;
+         }
+      }
+   }
+   .heading-row {
+      @include media-breakpoint-down(sm) {
+         .action-col {
+            min-width: 320px;
+         }
+      }
+      .view-switcher {
+         .btn {
+            &::after {
+               content: "";
+               width: 12px;
+               height: 7px;
+               right: 20px;
+               top: 13px;
+               position: absolute;
+               background: url(../images/selectOpen-green.svg);
+            }
+         }
+         &.expanded {
+            .btn {
+               &::after {
+                  @include transform(scaleY(-1));
+               }
+            }
+         }
+      }
+   }
+   .action-col {
+      @media screen and (max-width: 1280px) {
+         width: 100%;
+         max-width: 100%;
+         margin-left: -16px !important;
+         flex-flow: row wrap;
+         .action-triger {
+            margin-left: 16px;
+            margin-top: 16px;
+         }
+      }
+      .btn {
+         .icon {
+            margin-right: 12px;
+         }
+      }
+      .action-triger {
+         height: 36px;
+         & + .action-triger {
+            margin-left: 16px;
+         }
+      }
+      .delete-btn {
+         display: none !important;
+      }
+   }
+   &.item-selected {
+      .delete-btn {
+         display: flex !important;
+      }
+   }
+   .dropdown-wrap {
+      &::after {
+         background-image: url(../images/selectOpen-green.svg);
+         right: 20px;
+         min-height: 7px;
+      }
+      .btn {
+         padding: 7px 48px 7px 16px;
+      }
+   }
+   .filter-btn {
+      padding-right: 24px;
+      padding-left: 16px;
+      min-width: 102px;
+   }
+   .modal-wrapper {
+      .card-header {
+         padding-top: 5px;
+         padding-bottom: 5px;
+         height: 64px;
+         .clear-filter-btn {
+            font-size: $small-fnts;
+            color: $red;
+            display: none;
+         }
+      }
+      &.filter-value-added {
+         .card-header {
+            .clear-filter-btn {
+               display: block;
+            }
+         }
+      }
+      .modal-body {
+         .form-wrap {
+            border-bottom: 0;
+         }
+         .form-group-row {
+            .form-group {
+               padding-left: 8px;
+               padding-right: 8px;
+            }
+         }
+         .form-group {
+            .currency {
+               position: absolute;
+               width: 59px;
+               height: calc(100% - 2px);
+               background: rgba(239, 242, 249, 0.3);
+               color: $gray;
+               font-size: $small-fnts + 1;
+               right: 9px;
+               top: 1px;
+               @include flex(center);
+            }
+            .form-control {
+               padding-right: 60px;
+            }
+         }
+         @include media-breakpoint-up(sm) {
+            .nav-tabs {
+               height: 56px;
+               .nav-item {
+                  width: calc(100% / 3);
+               }
+               .nav-link {
+                  padding-top: 15px;
+                  padding-bottom: 14px;
+                  font-size: $heading6-fonts;
+                  line-height: $heading6-line-height;
+               }
+            }
+         }
+         .form-group,
+         .nav-tabs {
+            margin-bottom: 25px;
+         }
+         .select-group {
+            label {
+               font-size: $small-fnts + 1;
+            }
+            .stage-icon {
+               width: 12px;
+               height: 12px;
+               position: absolute;
+               left: 16px;
+               top: 30px;
+               &::after {
+                  content: "";
+                  width: 12px;
+                  height: 12px;
+                  @include border-radius(50px);
+                  display: block;
+               }
+               &.all {
+                  &::after {
+                     background: url(../images/state-all-icon.png);
+                  }
+               }
+               &.leads {
+                  &::after {
+                     background: $blue-light;
+                  }
+               }
+               &.not-listed {
+                  &::after {
+                     background: $orange;
+                  }
+               }
+               &.quote-meeting {
+                  &::after {
+                     background: $blue-3;
+                  }
+               }
+               &.in-progress {
+                  &::after {
+                     background: $blue;
+                  }
+               }
+               &.job-completed {
+                  &::after {
+                     background: $green;
+                  }
+               }
+            }
+            .form-control {
+               padding-left: 36px;
+               padding-right: 16px;
+            }
+         }
+      }
+   }
+}
